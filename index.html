@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spotify Search</title>
+
+<style>
+body{
+    font-family:Arial,sans-serif;
+    background:#121212;
+    color:#fff;
+    text-align:center;
+    padding:30px;
+}
+
+input{
+    width:80%;
+    max-width:350px;
+    padding:12px;
+    border:none;
+    border-radius:8px;
+}
+
+button{
+    padding:12px 20px;
+    margin-left:5px;
+    border:none;
+    border-radius:8px;
+    background:#1DB954;
+    color:#fff;
+    cursor:pointer;
+}
+
+#result{
+    margin-top:20px;
+    white-space:pre-wrap;
+    text-align:left;
+    background:#1e1e1e;
+    padding:15px;
+    border-radius:10px;
+}
+</style>
+
+</head>
+<body>
+
+<h2>Spotify Search</h2>
+
+<input id="q" placeholder="Cari lagu...">
+<button onclick="searchSong()">Search</button>
+
+<div id="result">Belum ada hasil.</div>
+
+<script>
+async function searchSong(){
+
+const q=document.getElementById("q").value;
+
+const res=await fetch("/api/spotify?q="+encodeURIComponent(q));
+
+const data=await res.json();
+
+document.getElementById("result").textContent=
+JSON.stringify(data,null,2);
+
+}
+</script>
+
+</body>
+</html>
