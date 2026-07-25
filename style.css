@@ -1,0 +1,102 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,sans-serif;
+}
+
+body{
+    background:#121212;
+    color:#fff;
+    padding:20px;
+}
+
+.container{
+    max-width:500px;
+    margin:auto;
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.search{
+    display:flex;
+    gap:10px;
+}
+
+input{
+    flex:1;
+    padding:13px;
+    border:none;
+    border-radius:10px;
+    background:#222;
+    color:#fff;
+    outline:none;
+}
+
+button{
+    padding:13px 18px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    background:#1DB954;
+    color:#fff;
+    font-weight:bold;
+}
+
+button:hover{
+    opacity:.9;
+}
+
+.card{
+    margin-top:25px;
+    background:#181818;
+    border-radius:18px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 0 15px rgba(0,0,0,.3);
+}
+
+.cover{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:18px;
+    margin-bottom:15px;
+}
+
+.card h2{
+    margin:8px 0;
+}
+
+.card p{
+    color:#bbb;
+    margin:5px 0;
+}
+
+audio{
+    width:100%;
+    margin-top:15px;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 18px;
+    border-radius:10px;
+    background:#1DB954;
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:8px;
+}
+
+.spotify{
+    background:#2a2a2a;
+}
+
+.btn:hover{
+    opacity:.9;
+}
