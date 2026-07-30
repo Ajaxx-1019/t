@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 
 <head>
 
@@ -21,21 +21,67 @@ href="style.css">
 
 <h1>Spotify Brot</h1>
 
-<div class="search">
+<div class="tabs">
+  <button class="tab-btn active" data-tab="song" onclick="switchTab('song')">Cari Lagu</button>
+  <button class="tab-btn" data-tab="playlist" onclick="switchTab('playlist')">Playlist</button>
+</div>
 
-<input
-id="q"
-placeholder="Cari lagu...">
+<section id="tab-song" class="tab-panel active">
 
-<button onclick="searchSong()">
-Cari
-</button>
+  <div class="search">
+    <input id="q" placeholder="Cari lagu...">
+    <button onclick="searchSong()">Cari</button>
+  </div>
+
+  <div id="result"></div>
+
+</section>
+
+<section id="tab-playlist" class="tab-panel">
+
+  <div class="search">
+    <input id="plUrl" placeholder="Tempel link playlist Spotify...">
+    <button onclick="searchPlaylist()">Muat</button>
+  </div>
+
+  <div id="playlistHeader"></div>
+
+  <div class="playlist-actions" id="playlistActions">
+    <button class="btn-action" id="shuffleBtn" onclick="toggleShuffle()">🔀 Smart Shuffle: OFF</button>
+    <button class="btn-action" onclick="playAllFromStart()">▶ Putar Semua</button>
+  </div>
+
+  <div id="playlistTracks"></div>
+
+</section>
 
 </div>
 
-<div id="result"></div>
+<div id="player" class="player">
+
+  <img id="playerCover" class="player-cover" src="" alt="">
+
+  <div class="player-info">
+    <div id="playerTitle" class="player-title">Belum ada lagu diputar</div>
+    <div id="playerArtist" class="player-artist"></div>
+
+    <div class="player-progress">
+      <span id="curTime" class="player-time">0:00</span>
+      <input type="range" id="seek" class="seek" min="0" max="100" value="0">
+      <span id="durTime" class="player-time">0:00</span>
+    </div>
+  </div>
+
+  <div class="player-controls">
+    <button id="prevBtn" class="ctrl-btn" onclick="playPrev()" title="Sebelumnya">⏮</button>
+    <button id="playPauseBtn" class="ctrl-btn play" onclick="togglePlay()" title="Putar/Jeda">▶</button>
+    <button id="nextBtn" class="ctrl-btn" onclick="playNext()" title="Berikutnya">⏭</button>
+    <button id="downloadBtn" class="ctrl-btn" onclick="downloadCurrent()" title="Unduh MP3">⬇</button>
+  </div>
 
 </div>
+
+<audio id="audio"></audio>
 
 <script src="script.js"></script>
 
